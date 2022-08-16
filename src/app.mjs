@@ -1,18 +1,25 @@
 import express from 'express'
-import candidates from './data/index.js'
+import { candidates } from './data/index.mjs'
 import { sendEmail } from './services/nodemailerService.mjs';
-sendEmail
+
 
 const app = express();
 
 
 app.post("/mail", (req, res) => {
   console.log("Sending Mail")
-  candidates.map((candidate) => {
-    sendEmail({ to: candidate.mail }, { name: candidate.name, sheetsUrl: candidate.sheetsUrl })
-    console.log(`Mail sended to ${candidate.name}`)
-  })
-  res.json({ "msg": "Mails Sended" })
+  try {
+    candidates.map(async (candidate) => {
+      await sendEmail({ to: candidate.mail }, { name: candidate.name, sheetsUrl: candidate.sheetsUrl })
+      console.log(`Mail sended to ${candidate.name}`)
+    })
+    res.json({ "msg": "Mails Sended" })
+
+  } catch (error) {
+    console.error(error)
+    res.status(500).json("Server Error")
+
+  }
 });
 
 
