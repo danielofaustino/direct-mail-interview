@@ -32,12 +32,13 @@ async function getSpreadSheetData() {
 
   const { googleSheets, auth, spreadsheetId } = await getAuthSheets();
 
-  const candidates = await googleSheets.spreadsheets.get({
+  const candidates = await googleSheets.spreadsheets.values.get({
     auth,
     spreadsheetId,
+    range: 'candidates'
   });
 
-  return candidates
+  return candidates.data
 
 }
 
