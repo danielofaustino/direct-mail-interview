@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "direct-mail-interview",
+  "private_key_id": "dce212d9445c66acdb146db0e3f3198bbd93a19a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC2ghJC3ZIc9Egi\nIbwWl95d99iU8gzvTlaqOm0zGuwcvHBvGqdIHNyTe3ufL4xfP5yOtwEnGGR2NpQO\n3O8GoAXTWphetQK2D6yq3wNVGYnm4y4DOLXvuzeCFrAh8fQIRs71Py+x1pVR25tT\nn8E5uz4xrb6Anx9a9FTSkIce1hlYZOmKcexOAaR04fSTRc/zzhT0+WrBdi6pnKav\nSu7aLFPt1VM6+u8zJ+jdoG2uLFa+XPAbJGhSs1HWV/X1ev16eK1S65FfDYj70iYr\naKYgFC0jwUo8etCImrbm7yciRAPoFeGagLKmTW3MjmtSh9whn/0DjboH4Xl5iPhR\ndwOLhZBlAgMBAAECggEAJUeQ6NkfByyLznMDGz9Ww+2ELzp5E2m2UKvCEgISEDWa\npss0N8nzcWm0APpiqzMQbONrSBvWq4HvANE2vuzxe7Bh9th1DxDJFZcbtGaU0VV+\n2Ngc67TbfAZb4HcugIFMNXK8cJBTLGcWBYEYpEz/wYCKrPWz3y2Q5PjyLMWRZElS\nSiWaOKn1qNcYBnq1CiVfWawsNmPjhmwYJUsCrP6LQS7R9Mp1U+9quw97lSU9yPkp\nm5p12A3mii4SqKqZw/GwT70JZEeFu+oT8kEL+ryY2bbPcCkXgr0ZbUK5VudMF6Z5\ncgDzOA9jTU6neyw5WbJuyFDJ2gjgzwxRyLTYfYfOCQKBgQDdEXk/TBl4X2EdANSv\nf5hsXcMULb6ChmZl3wVlJaAicZutQ+eDfs8dAjK7g/UjcUSYY4kNRIXf1ZDDWqhY\n+fo2utPQRaAzIiRSt/1JlQFjfhpMB9WEQHLELlKv747LVTnL04Y+kn9h+V/nD8vz\nHsfPuizgo9yV9NmOcPC1rVRSXQKBgQDTWMi1Eopyc8u9zA5kcfbbgES+vawYRjvv\nsb4xVz2MY4L1vbKhVVFtBRlb7PAnT7wwtcFfvYZVdH8RPUy6Q3P5VlqxdvYSdLdF\nVD0j/W8/YkIoQPXoynhjMrEnu7IW8QC7s6WG6K8ysbsgGbhRwFyBoCY6X6FzO2IA\nI3kenwblqQKBgFV+SXaqNntv33248YfBf7AA/s2R90hBM96Xxl1clLZdW0hBp4oa\nA30DeZ09JhOD3XRVog4IfwGWdTqnl815N0PtMrcsBg1gWc3Hq+PGBVh1zzOyH+fa\niMfH5mB187I9DnH+Jr+SJkM8jtMsL8KhF8MFDBAALvGrVGuaz+xi0OZdAoGATwgF\nTcjYIsJwbtHuk9sV/7DwhA8zWoRxB0oFIDhKWMQhhblhIflgkI72k6x/hYPIkMJ2\nxFF/+Vat6Ylttr1gkd2b3n7ot7ATlIZSsrGjtyUMLjdUfa+w4w9itcP3baLDrm0Y\nOeGrGh7iJbfYeCGhtgtoIC4AlrGfDQQ215+KGbkCgYBeV6doG2BhSmxsJuDQ6tFH\n9e7u6Tqs0szvyqxVp/1I45R83/EQRXcYvNc9q1motdOPi/8FJOMwpvopjNJuLJ6z\nB6RgE4oea5sqAfM0K/N+lOGagUdaIregC/AMVhbyxfvqLo+5RRE7Qxd/VXSqKlvL\n3aEKInr4vz4OH6FURbwsAA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "direct-mail-interview@direct-mail-interview.iam.gserviceaccount.com",
+  "client_id": "103878409826851479643",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/direct-mail-interview%40direct-mail-interview.iam.gserviceaccount.com"
+}

@@ -1,6 +1,7 @@
 import express from 'express'
 import { candidates } from './data/index.mjs'
 import { sendEmail } from './services/nodemailerService.mjs';
+import { getSpreadSheetData } from './services/googleSheetsService.mjs';
 
 
 const app = express();
@@ -21,6 +22,18 @@ app.post("/mail", (req, res) => {
 
   }
 });
+
+
+app.get('/spreadsheet', async (req, res) => {
+  try {
+    const candidates = await getSpreadSheetData()
+    res.send(candidates)
+  } catch (error) {
+    console.error(error.message)
+  }
+
+
+})
 
 
 app.listen(5005, () => {
