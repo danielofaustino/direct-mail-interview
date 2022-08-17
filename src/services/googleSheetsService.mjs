@@ -42,4 +42,8 @@ async function getSpreadSheetData() {
 
 }
 
-export { getAuthSheets, getSpreadSheetData }
+async function duplicateSpreadSheet() {
+
+}
+
+export { getAuthSheets, getSpreadSheetData, duplicateSpreadSheet }
