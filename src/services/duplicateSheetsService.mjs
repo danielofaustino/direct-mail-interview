@@ -1,22 +1,9 @@
 import { google } from 'googleapis';
-import credentials from '../data/credentials.json' assert {type: 'json'}
+import { authenticate } from '@google-cloud/local-auth'
 
-
-// POST /drive/v3/files/10cmd91hyu7RYKI7yMfE-d31rfINsQhLsoBETGzucVLc/copy HTTP/1.1
-// Host: www.googleapis.com
-// Content-length: 17
-// Content-type: application/json
-// Authorization: Bearer ya29.A0AVA9y1tRWdwQhaXhViNnh9ccp9mDg24KVtdTkSPO_KSlv-XKP4wWR46QIyM5LGlxBvAA_ZYIS8iDo5Lv9MkP7tXlNtFBB-v5TQ9iKgPp4n0hXSYlWyP5DUNGxtMjHb8JyFYUs467VijVd1ae7GbziPQTS-YfaCgYKATASATASFQE65dr8LBAhVue2kfQ-4uCG_ITU-A0163
-// {
-// "name":"test"
-// }
-
-const client_id = credentials.web.client_id;
-const client_secret = credentials.web.client_secret;
-const redirect_uris = credentials.web.redirect_uris;
-const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-
-const SCOPE = [
+const drive = google.drive('v3')
+var credentials = new URL('../data/driveCredential.json', import.meta.url).pathname;
+var scopes = [
   "https://www.googleapis.com/auth/drive",
   "https://www.googleapis.com/auth/drive.file",
   "https://www.googleapis.com/auth/drive.appdata",
@@ -24,36 +11,47 @@ const SCOPE = [
 ]
 
 
-const getAuthURL = () => {
-  const authUrl = oAuth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: SCOPE,
+async function quickstart() {
+  const localAuth = await authenticate({
+    scopes: scopes,
+    keyfilePath: credentials,
   });
-
-  return authUrl;
-};
-
-const getToken = (code) => {
-
-  oAuth2Client.getToken('4/0AdQt8qiMn9XzIcO4IQgyeDf069gIf3_EoZFY1A0b9Xmp-ycfqPjD2LHUwDl_3rz6geOSdg', (err, token) => {
-    if (err) {
-      console.error('Error retrieving access token', err);
-
-    }
-    return token;
-  });
+  console.log('Tokens:', localAuth.credentials);
 }
 
-const getUserInfo = (token) => {
+async function duplicateSheet() {
 
-  oAuth2Client.setCredentials(token);
-  const oauth2 = google.oauth2({ version: 'v2', auth: oAuth2Client });
+  const auth = await authenticate({ keyfilePath: credentials, scopes: scopes })
 
-  oauth2.userinfo.get((err, response) => {
+  console.log("AUTH ==>", auth.credentials)
 
-    console.log(response.data);
-    return response.data;
+  google.options({ auth });
+
+  const copy = await drive.files.copy({
+    fileId: "1XAYqW1nOPdklr54bGHfa34El9_PvQkP-Behin6iycAI",
+    requestBody: {
+      "name": "Daniel Faustino-protonTeste",
+    },
+
+
+  }).then(async (result) => {
+    console.log("drive", result)
+    await drive.permissions.create({
+      emailMessage: 'teste de enviar permissão',
+      fileId: result.data.id,
+      sendNotificationEmail: true,
+      // Request body metadata
+      requestBody: {
+        "emailAddress": "danielofaustino@proton.me",
+        "role": "writer",
+        "type": "user",
+      }
+    }).then((result) => {
+      console.log("FILE PERMISSION", result.data)
+    })
+
+
   })
 }
 
-console.log(getToken())
+console.log(duplicateSheet())
