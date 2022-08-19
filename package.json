@@ -4,7 +4,8 @@
   "private": true,
   "main": "src/app.mjs",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node src/main.mjs"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",

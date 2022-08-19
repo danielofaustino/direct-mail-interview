@@ -15,14 +15,14 @@ const transporter = nodemailer.createTransport({
 
 
 
-async function sendEmail(mailPayload, content) {
-  ejs.renderFile(filePath, { name: content.name, sheetsUrl: content.sheetsUrl }, (err, data) => {
+async function sendEmail(candidate) {
+  ejs.renderFile(filePath, { name: candidate.firstName, urlSheet: candidate.urlSheet }, (err, data) => {
     if (err) {
       console.log(err);
     } else {
       const mailOptions = {
         from: 'clinicafcare@proton.me',
-        to: mailPayload.to,
+        to: candidate.email,
         subject: 'Entrevista - Clínica F.Care',
         html: data
       };

@@ -38,12 +38,10 @@ async function getSpreadSheetData() {
     range: 'candidates'
   });
 
-  return candidates.data
+  return candidates.data.values
 
 }
 
-async function duplicateSpreadSheet() {
 
-}
 
-export { getAuthSheets, getSpreadSheetData, duplicateSpreadSheet }
+export { getAuthSheets, getSpreadSheetData }
