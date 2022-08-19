@@ -1,58 +1,71 @@
+import 'dotenv/config'
 import { google } from 'googleapis';
 import { authenticate } from '@google-cloud/local-auth'
 
 const drive = google.drive('v3')
-var credentials = new URL('../data/driveCredential.json', import.meta.url).pathname;
-var scopes = [
+
+const credentials = new URL('../keys/driveCredential.json', import.meta.url).pathname;
+
+const scopes = [
   "https://www.googleapis.com/auth/drive",
   "https://www.googleapis.com/auth/drive.file",
   "https://www.googleapis.com/auth/drive.appdata",
   "https://www.googleapis.com/auth/drive.photos.readonly"
 ]
 
-var auth
 
 async function authentication() {
-  auth = await authenticate({ keyfilePath: credentials, scopes: scopes })
 
-  // console.log("AUTH ==>", auth.credentials)
+  try {
+    const auth = await authenticate({ keyfilePath: credentials, scopes: scopes })
+    google.options({ auth });
 
-  google.options({ auth });
+  } catch (error) {
+    console.error(error.message)
+  }
 }
 
 async function duplicateSheet(candidate) {
-
   let urlSheet
 
-  await drive.files.copy({
-    fileId: "1XAYqW1nOPdklr54bGHfa34El9_PvQkP-Behin6iycAI",
-    requestBody: {
-      "name": candidate.completeName,
-    },
+  try {
 
-  }).then(async (sheet) => {
-
-    await drive.permissions.create({
-      //emailMessage: 'Teste Técnico- Clínica F.Care, abra o proximo email para ter mais informações.',
-      fileId: sheet.data.id,
-      //sendNotificationEmail: true,
-      // Request body metadata
+    await drive.files.copy({
+      fileId: process.env.DRIVE_FILE_ID,
       requestBody: {
-        //"emailAddress": candidate.email,
-        "role": "writer",
-        "type": "anyone",
-      }
+        "name": candidate.completeName,
+      },
 
-    }).then((permission) => {
-      console.log("SHEET CREATED -", permission.data)
+    }).then(async (sheet) => {
+
+      await drive.permissions.create({
+        //emailMessage: 'Teste Técnico- Clínica F.Care, abra o proximo email para ter mais informações.',
+        fileId: sheet.data.id,
+        //sendNotificationEmail: true,
+        // Request body metadata
+        requestBody: {
+          //"emailAddress": candidate.email,
+          "role": "writer",
+          "type": "anyone",
+        }
+
+      }).then((permission) => {
+
+        console.log("-- SHEET CREATED --")
+      })
+
+      urlSheet = sheet.data.id
 
     })
 
-    urlSheet = sheet.data.id
+    return urlSheet
+  } catch (error) {
 
-  })
+    console.error(error.message)
 
-  return urlSheet
+  }
+
+
 }
 
 export { authentication, duplicateSheet }

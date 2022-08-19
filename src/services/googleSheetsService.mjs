@@ -1,7 +1,8 @@
+import 'dotenv/config'
 import { google } from 'googleapis'
 
 
-const credentialPath = new URL('../data/direct-mail-interview-dce212d9445c.json', import.meta.url).pathname;
+const credentialPath = new URL('../keys/sheetCredential.json', import.meta.url).pathname;
 
 
 async function getAuthSheets() {
@@ -17,7 +18,7 @@ async function getAuthSheets() {
     auth: client
   })
 
-  const spreadsheetId = '1fhdnMi6WhuCMcGvn3VIEqrwQFMc0z9sS1oRIhJ44Whc';
+  const spreadsheetId = process.env.SPREAD_SHEET_ID;
 
   return {
     auth,
@@ -35,7 +36,7 @@ async function getSpreadSheetData() {
   const candidates = await googleSheets.spreadsheets.values.get({
     auth,
     spreadsheetId,
-    range: 'candidates'
+    range: process.env.SPREAD_SHEET_RANGE
   });
 
   return candidates.data.values

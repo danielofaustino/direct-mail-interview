@@ -13,8 +13,8 @@
     }
 
     .logo {
-      width: 25%;
-      padding: 5%;
+      width: 10%;
+      padding-top: 5%;
     }
 
     .textContainer {
@@ -53,10 +53,12 @@
       list-style-type: auto;
     }
 
-    #line {
+    .line {
       color: #c69d4b;
       border-width: thin;
       border-style: double;
+      margin-top: 5%;
+      margin-bottom: 5%;
     }
 
     #name {
@@ -64,7 +66,7 @@
       padding-bottom: 5%;
     }
 
-    .footer{
+    .footer {
       padding: 5%;
       text-align: center;
     }
@@ -78,22 +80,30 @@
 <body>
 
   <div class="logoContainer">
-    <img class="logo" src="https://www.clinicafcare.com.br/logo.svg" alt="logo_fcare">
+    <img class="logo" src="https://www.clinicafcare.com.br/logo_fcare.png" alt="logo_fcare">
   </div>
-  <hr id="line">
+  <hr class="line">
   <div class="textContainer">
 
     <h1 id="name">Olá <%= name %>!</h1>
-    <p>Seja bem vinda ao processo seletivo para a vaga: <b>Recepcionista</b></p>
-    <p>As etapas deste processo seletivo serão definidos com os seguintes passos:</p>
+    <p>Seja bem-vinda ao processo seletivo para a vaga: <b>Recepcionista</b></p>
+    <p>As etapas deste processo serão definidos com os seguintes passos:</p>
     <ol class="li-auto">
-      <li>Teste de Personalidade</li>
-      <li>Teste Técnico no Google Planilhas</li>
-      <li>Preenchimento do Formulário</li>
-      <li>Entrevista Final (Google Hangouts)</li>
+      <a href="#etapa1">
+        <li>Teste de Personalidade</li>
+      </a>
+      <a href="#etapa2">
+        <li>Teste Técnico no Google Planilhas</li>
+      </a>
+      <a href="#etapa3">
+        <li>Preenchimento do Formulário</li>
+      </a>
+      <a href="#etapa3">
+        <li>Entrevista Final (Google Hangouts)</li>
+      </a>
     </ol>
-
-    <h2>Teste de Personalidade<h3> Instruções e Link:</h3>
+    <hr class="line">
+    <h2 id="etapa1">Teste de Personalidade<h3> Instruções e Link:</h3>
     </h2>
 
     <ul>
@@ -101,28 +111,34 @@
       <li>Responda honestamente (mesmo se você não gostar da resposta).</li>
       <li>Tente não deixar nenhuma resposta no “neutro”.</li>
     </ul>
-    <p>Após terminar este teste, anote o seu resultado para preencher no formulário da 3 Etapa - 'Preenchimento do
-      Formulário'.</p>
+    <p>Após terminar este teste, anote o seu resultado para preencher no formulário da</p> <a href="#etapa3">
+      <p> Etapa
+        3 - 'Preenchimento do
+        Formulário'.</p>
+    </a>
     <a href="https://www.16personalities.com/br/teste-de-personalidade" target="_blank" rel="noopener noreferrer">
       <p>Link do Teste: clique aqui para abrir o link do teste de personalidade</p>
     </a>
-
-    <h2>Teste Técnico no Google Planilhas <h3> Instruções e Link:</h3>
+    <hr class="line">
+    <h2 id="etapa2">Teste Técnico no Google Planilhas <h3> Instruções e Link:</h3>
     </h2>
 
-    <p>O teste será realizado no Google Planilhas, você não precisa instalar nenhum tipo de
-      programa de pacote office no seu computador, apenas abra o link abaixo ( No smartphone é possivel baixar o
-      aplicativo Google Planilhas, mas recomendamos o uso de um computador ). Por favor, realize o
-      teste individualmente,se for preciso consulte a Documentação do Google, não peça pra outras pessoas realizarem por
-      você, na entrevista final vamos fazer perguntas técnicas para validar o seu
-      conhecimento. </p>
-
+    <p>O teste será realizado no Google Planilhas. Recomendamos o uso do computador para maior facilidade de digitação,
+      porém, também pode ser feito através do smartphone. </p>
+    <a href="https://docs.google.com/spreadsheets/d/<%= urlSheet %>/edit?usp=sharing" target="_blank"
+      rel="noopener noreferrer">
+      <p>Link do Teste : clique aqui para abrir o link do seu teste online do Google Planilhas</p>
+    </a>
+    <p>Por favor, realize o teste individualmente da maneira que souber e se necessário, consulte a documentação do
+      google no link a seguir para tirar qualquer dúvida:</p>
     <a href="https://support.google.com/docs/table/25273?hl=pt-BR" target="_blank" rel="noopener noreferrer">
       <p>Documentação do Google</p>
     </a>
-    <a href="https://docs.google.com/spreadsheets/d/<%= urlSheet %>/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-      <p>Link do Teste : clique aqui para abrir o link do seu teste online do Google Planilhas</p>
-    </a>
+
+    <p>Sugestão: Não peça ajuda de terceiros, é preferível que você seja sincera e realize da maneira que achar mais
+      coerente.</p>
+
+
     <h3>Teste Google Planilhas: Requisítos</h3>
     <ul>
       <li>Coluna COMISSÃO PROFISSIONAL:</li>
@@ -141,21 +157,33 @@
     <a href="http://www.clinicafcare.com.br/planilha_exemplo.png" target="_blank" rel="noopener noreferrer">
       <h3>Clique aqui para ver o exemplo de Planilha finalizada</h3>
     </a>
+    <hr class="line">
+    <h2 id="etapa3">Preenchimento do Formulário:</h2>
+    <p>Preencha o formulário apenas quando terminar os dois ultimos testes (Google Planilhas e Teste de Personalidade).
+    </p>
+    <p>O envio deste formulário será o aviso de que você terminou todas as atividade, e assim, poderemos seguir com a
+      sua avaliação para a etapa final.</p>
 
-    <h2>Preenchimento do Formulário:</h2>
-    <p>Preencha o formulário apenas quando terminar os dois ultimos testes ( Google Planilhas e Teste de Personalidade),
-      o envio do formulário será o aviso que voce terminou todas as atividade,e assim poderemos seguir com a sua
-      avaliação para a etapa final.</p>
-    <a href="https://forms.gle/mohq1cajRJcGxrWp8" target="_blank" rel="noopener noreferrer"></a>
-    <p>Link do Formulário</p>
+    <a href="https://forms.gle/mohq1cajRJcGxrWp8" target="_blank" rel="noopener noreferrer">
+      <p>Link do Formulário</p>
+    </a>
+    <hr class="line">
+    <h2 id="etapa4">Entrevista Final</h2>
+    <p>As candidatas aprovadas, receberão o link para a próxima e última etapa do processo seletivo, que será a
+      entrevista via Hangouts.</p>
 
-    <h1>Data Limite para entrega: 25/08/2022</h1>
+    <hr class="line">
+    <h2>Data Limite para entrega: 24/08/2022</h2>
 
     <div class="footer">
 
       <a href="https://www.clinicafcare.com.br/" target="_blank" rel="noopener noreferrer">
+
+
+        <img src="https://www.clinicafcare.com.br/footer.png" alt="">
         <p>www.clinicafcare.com.br</p>
       </a>
+      <p>2022</p>
     </div>
   </div>
 

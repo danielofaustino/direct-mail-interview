@@ -9,13 +9,8 @@ async function main() {
   // get users from google sheet
   const candidates = await getSpreadSheetData()
 
-  //const candidatesNormalized = await normalizer(candidates)
-  const candidatesNormalized = [{
-    completeName: 'Daniel Faustino',
-    email: 'danielofaustino@proton.me',
-    firstName: 'Daniel',
-    urlSheet: ''
-  },]
+  // normalizing from  [[],[]] to [{},{}]
+  const candidatesNormalized = await normalizer(candidates)
 
   // auth on GoogleDrive Api
   await authentication()

@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import { candidates } from './data/index.mjs'
 import { sendEmail } from './services/nodemailerService.mjs';
