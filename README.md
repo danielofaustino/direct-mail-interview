@@ -49,7 +49,10 @@ This application was developed to perform a real task, create a spreadsheet in g
 ## Usage
 To use this project, follow the steps above:
 ```bash
-yarn install && yarn start
+yarn start-interview  # run with interview mode
+yarn start-not-passed # run with not-passed mode
+yarn start-passed     # run with passed mode
+
 ```
 
 ## Contact

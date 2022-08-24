@@ -2,10 +2,13 @@
   "name": "direct-mail-interview",
   "version": "1.0.0",
   "private": true,
-  "main": "src/app.mjs",
+  "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "start": "node src/main.mjs"
+    "start-interview": "node src/main.js interview",
+    "start-not-passed": "node src/main.js not-passed",
+    "start-passed": "node src/main.js passed"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",

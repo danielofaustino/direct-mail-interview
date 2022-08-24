@@ -29,17 +29,23 @@ async function getAuthSheets() {
 }
 
 
-async function getSpreadSheetData() {
+async function getSpreadSheetData(mode) {
 
-  const { googleSheets, auth, spreadsheetId } = await getAuthSheets();
+  try {
+    const { googleSheets, auth, spreadsheetId } = await getAuthSheets();
 
-  const candidates = await googleSheets.spreadsheets.values.get({
-    auth,
-    spreadsheetId,
-    range: process.env.SPREAD_SHEET_RANGE
-  });
+    const candidates = await googleSheets.spreadsheets.values.get({
+      auth,
+      spreadsheetId,
+      range: mode
+    });
 
-  return candidates.data.values
+    return candidates.data.values
+  } catch (error) {
+    console.error(error.message)
+  }
+
+
 
 }
 

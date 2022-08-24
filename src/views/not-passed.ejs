@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinica F.Care</title>
+  <style>
+    .logoContainer {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 10%;
+      padding-top: 5%;
+    }
+
+    .textContainer {
+      padding: 2%;
+      text-align: center;
+    }
+
+    .textContainer h1 {
+      color: #c69d4b;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    .textContainer h2,
+    h3 {
+      color: #c69d4b;
+      font-weight: 400;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .textContainer p {
+      color: #374151;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    .textContainer li {
+      color: #374151;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      
+    }
+
+    .li-auto {
+      color: #374151;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      list-style-type: auto;
+    }
+
+    .line {
+      color: #c69d4b;
+      border-width: thin;
+      border-style: double;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+
+    #name {
+      text-align: center;
+      padding-bottom: 5%;
+    }
+
+    .footer {
+      padding: 5%;
+      text-align: center;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="logoContainer">
+    <img class="logo" src="https://www.clinicafcare.com.br/logo_fcare.png" alt="logo_fcare">
+  </div>
+  <hr class="line">
+  <div class="textContainer">
+
+    <h2 id="name">Olá <%= name %>!</h2>
+
+    <p>Boa Tarde!, </p>
+    <p>Obrigado pela sua candidatura à vaga de Recepcionista e por toda a disponibilidade.</p>
+    <p>Infelizmente você não foi a candidata escolhida. Fique atenta a nossa página do Linkedin em breve podemos abrir novas vagas.</p>
+    <a href="https://www.linkedin.com/company/clinica-f-care/" target="_blank" rel="noopener noreferrer">Acesse nosso Linkedin</a>
+    
+    <div class="footer">
+
+      <a href="https://www.clinicafcare.com.br/" target="_blank" rel="noopener noreferrer">
+
+
+        <img src="https://www.clinicafcare.com.br/footer.png" alt="">
+        <p>www.clinicafcare.com.br</p>
+      </a>
+      <p>2022</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
