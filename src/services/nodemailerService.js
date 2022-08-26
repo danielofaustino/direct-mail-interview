@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import nodemailer from 'nodemailer';
 import ejs from 'ejs';
+import { getHoursAndGreet } from '../utils/getHours.js';
+
 
 const filePath = (mode) => new URL(`../views/${mode}.ejs`, import.meta.url).pathname;
 
@@ -15,6 +17,8 @@ const transporter = nodemailer.createTransport({
 
 
 async function sendEmail(candidate, mode) {
+
+  let greet = getHoursAndGreet()
 
   try {
 
@@ -41,7 +45,7 @@ async function sendEmail(candidate, mode) {
         }
       });
     } else if (mode === 'passed' || mode === 'not-passed') {
-      ejs.renderFile(filePath(mode), { name: candidate.firstName }, (err, data) => {
+      ejs.renderFile(filePath(mode), { name: candidate.firstName, greet }, (err, data) => {
         if (err) {
           console.log(err);
         } else {

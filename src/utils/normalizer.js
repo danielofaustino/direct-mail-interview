@@ -2,8 +2,14 @@ async function normalizer(candidates) {
 
   let candidatesNormalized = [];
 
+  const sortCandidates = (a, b) => {
+    return (a.firstName == b.firstName) ? 0
+      : (a.firstName < b.firstName) ? -1 : 1
+  }
+
   try {
-    candidates.map((candidate) => {
+
+    await candidates.map((candidate) => {
       candidatesNormalized.push({
         completeName: candidate[0],
         email: candidate[1],
@@ -12,6 +18,8 @@ async function normalizer(candidates) {
 
       })
     })
+
+    candidatesNormalized.sort((a, b) => sortCandidates(a, b))
 
     return candidatesNormalized
 
