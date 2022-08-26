@@ -39,6 +39,7 @@ This application was developed to perform a real task, create a spreadsheet in g
 * [x] es6
 * [x] ejs
 * [x] googleapis
+* [x] argv
 
 ## Tech Stack
 <img src="https://img.shields.io/badge/Css3-05122A?style=flat&logo=css3" alt="css3 Badge" height="25">&nbsp;
