@@ -32,7 +32,7 @@ async function main(mode) {
       console.log("candidate ==>", candidate)
 
       // Send Email with html template
-      await sendEmail(candidate)
+      await sendEmail(candidate, mode)
     })
 
   } else if (mode === 'passed' || 'not-passed') {
